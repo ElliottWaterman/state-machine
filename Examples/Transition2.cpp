@@ -3,15 +3,28 @@
 
 namespace Examples
 {
-    StateMachine::ITransition* Transition2::_instance = NULL;
+    Transition2* Transition2::_instance = NULL;
 
-    StateMachine::ITransition* Transition2::GetInstance()
+    Transition2* Transition2::GetInstance(Payload2* payload)
     {
         if (_instance == NULL)
             _instance = new Transition2();
 
+        if (_instance->GetPayload() == nullptr)
+            _instance->CreatePayload();
+
         return _instance;
     }
 
-    Transition2::Transition2() { }
+    void Transition2::CreatePayload()
+    {
+        _payload = new Payload2();
+    }
+
+    Transition2::Transition2() {}
+
+    Payload2* Transition2::GetPayload()
+    {
+        return _payload;
+    }
 }

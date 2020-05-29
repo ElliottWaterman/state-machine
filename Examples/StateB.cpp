@@ -12,9 +12,11 @@ namespace Examples
     { }
 
 
-    StateMachine::ITransition* StateB::Run()
+    StateMachine::ITransition* StateB::Run(StateMachine::IPayload* payload)
     {
         cout << "State B" << endl;
+        if (payload != nullptr)
+            cout << "Payload: " << payload->GetString() << endl;
 
         this_thread::sleep_for(chrono::seconds(2));
 

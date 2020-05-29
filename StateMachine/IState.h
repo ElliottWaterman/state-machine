@@ -2,6 +2,7 @@
 #define STATE_MACHINE_ISTATE_H
 
 #include "ITransition.h"
+#include "IPayload.h"
 
 namespace StateMachine
 {
@@ -9,7 +10,7 @@ namespace StateMachine
     {
     public:
         IState() {};
-        virtual ITransition *Run() = 0;
+        virtual ITransition* Run(IPayload* payload) = 0;
         virtual void ExitState() = 0;
     };
 }

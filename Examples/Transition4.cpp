@@ -14,4 +14,9 @@ namespace Examples
     }
 
     Transition4::Transition4() { }
+
+    StateMachine::IPayload* Transition4::GetPayload()
+    {
+        return nullptr;
+    }
 }

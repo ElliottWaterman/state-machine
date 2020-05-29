@@ -8,14 +8,15 @@ namespace Examples
     class Transition4 : public StateMachine::ITransition
     {
     public:
+        virtual StateMachine::IPayload* GetPayload();
+
         static StateMachine::ITransition* GetInstance();
 
     private:
-        static StateMachine::ITransition* _instance;
-
         Transition4();
+
+        static StateMachine::ITransition* _instance;
     };
 }
-
 
 #endif //EXAMPLES_TRANSITION4_H

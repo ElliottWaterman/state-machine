@@ -10,8 +10,8 @@ namespace Examples
     {
     public:
         StateA();
-        StateMachine::ITransition *Run();
-        void ExitState();
+        virtual StateMachine::ITransition *Run(StateMachine::IPayload* payload);
+        virtual void ExitState();
     private:
         bool _flag;
     };

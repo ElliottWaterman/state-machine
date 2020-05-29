@@ -9,8 +9,8 @@ namespace Examples
     {
     public:
         StateC();
-        StateMachine::ITransition* Run();
-        void ExitState();
+        virtual StateMachine::ITransition* Run(StateMachine::IPayload* payload);
+        virtual void ExitState();
     };
 }
 

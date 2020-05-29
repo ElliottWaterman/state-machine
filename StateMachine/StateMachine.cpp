@@ -11,16 +11,23 @@ namespace StateMachine
 
     void StateMachine::Run()
     {
-        ITransition *transition;
+        ITransition *transition = nullptr;
+        IPayload* payload = nullptr;
 
         while(true)
         {
-            transition = _currentState->Run();
+            transition = _currentState->Run(payload);
             _currentState->ExitState();
 
+            payload = transition->GetPayload(); //if (transition != nullptr) 
+
+            // Find if the transition exists in the map then return the state
+            // If not found return the default state
             _currentState = _transitions->find(transition) != _transitions->end() ?
                             (*_transitions)[transition] :
                             _defaultState;
+                            // Could get "default" state based on the current state
+                            // I.e. map of <IState, IState>, input current state get default back
         }
     }
 }
