@@ -11,8 +11,7 @@ namespace StateMachine
         virtual IPayload* GetPayload() = 0;
 
     protected:
-        ITransition() {}
-        virtual void CreatePayload() = 0;
+        ITransition() {};
     };
 }
 

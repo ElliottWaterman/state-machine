@@ -9,15 +9,14 @@ namespace Examples
     class Transition1 : public StateMachine::ITransition
     {
     public:
-        static Transition1* GetInstance(Payload1* payload);
+        static Transition1* GetInstance();
 
         virtual Payload1* GetPayload();
 
     private:
         static Transition1* _instance;
 
-        Transition1(Payload1* payload);
-        virtual void CreatePayload();
+        Transition1();
         Payload1* _payload;
     };
 }

@@ -26,5 +26,9 @@ set(SOURCE_FILES
     Examples/Transition4.cpp
     Examples/Payload1.h
     Examples/Payload1.cpp
- "Examples/Payload2.cpp" "Examples/Payload2.h")
+    Examples/Payload2.h
+    Examples/Payload2.cpp
+    Examples/Payload3.h
+    Examples/Payload3.cpp
+    )
 add_executable(state_machine ${SOURCE_FILES})

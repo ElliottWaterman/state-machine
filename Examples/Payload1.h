@@ -10,7 +10,9 @@ namespace Examples
     public:
         Payload1();
 
-        virtual std::string GetString();
+        virtual const std::string GetMessage();
+
+        void SetMessage(std::string message);
 
     private:
         std::string _message;

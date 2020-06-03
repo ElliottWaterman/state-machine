@@ -2,6 +2,7 @@
 #define EXAMPLES_STATEB_H
 
 #include "../StateMachine/IState.h"
+#include "Payload1.h"
 
 namespace Examples
 {
@@ -9,8 +10,12 @@ namespace Examples
     {
     public:
         StateB();
-        StateMachine::ITransition* Run(StateMachine::IPayload* payload);
+        virtual void EnterState(StateMachine::IPayload* payload);
+        virtual StateMachine::ITransition* Run();
         virtual void ExitState();
+
+    private:
+        Payload1* _payload;
     };
 }
 

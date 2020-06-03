@@ -12,11 +12,12 @@ namespace StateMachine
     void StateMachine::Run()
     {
         ITransition *transition = nullptr;
-        IPayload* payload = nullptr;
+        IPayload* payload = nullptr;    // new Payload1();  // Use Payload of the initial / default state
 
         while(true)
         {
-            transition = _currentState->Run(payload);
+            _currentState->EnterState(payload);
+            transition = _currentState->Run();  // Executes here until a transition
             _currentState->ExitState();
 
             payload = transition->GetPayload(); //if (transition != nullptr) 

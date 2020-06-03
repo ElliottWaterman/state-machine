@@ -2,20 +2,22 @@
 #define EXAMPLES_TRANSITION3_H
 
 #include "../StateMachine/ITransition.h"
+#include "Payload2.h"
 
 namespace Examples
 {
     class Transition3 : public StateMachine::ITransition
     {
     public:
-        virtual StateMachine::IPayload* GetPayload();
+        static Transition3* GetInstance();
 
-        static StateMachine::ITransition* GetInstance();
+        virtual Payload2* GetPayload();
 
     private:
-        Transition3();
+        static Transition3* _instance;
 
-        static StateMachine::ITransition* _instance;
+        Transition3();
+        Payload2* _payload;
     };
 }
 

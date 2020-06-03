@@ -12,8 +12,13 @@ namespace Examples
         _message = "Payload 1 from State A to State B";
     }
 
-    std::string Payload1::GetString()
+    const std::string Payload1::GetMessage()
     {
         return _message;
+    }
+    void Payload1::SetMessage(std::string message)
+    {
+        //if (message != NULL)
+            _message = message;
     }
 }

@@ -10,7 +10,8 @@ namespace StateMachine
     {
     public:
         IState() {};
-        virtual ITransition* Run(IPayload* payload) = 0;
+        virtual void EnterState(IPayload* payload) = 0;
+        virtual ITransition* Run() = 0;
         virtual void ExitState() = 0;
     };
 }

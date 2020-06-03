@@ -9,11 +9,15 @@ namespace Examples
         std::cout << "Creating Payload 2..." << std::endl;
 
         // Initialise members
-        _message = "Payload 2 from State A to State C";
+        _message = "Payload 2 - Initialised";
     }
 
-    std::string Payload2::GetString()
+    const std::string Payload2::GetMessage()
     {
         return _message;
+    }
+    void Payload2::SetMessage(std::string message)
+    {
+        _message = message;
     }
 }

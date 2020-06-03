@@ -3,9 +3,9 @@
 
 namespace Examples
 {
-    StateMachine::ITransition* Transition3::_instance = NULL;
+    Transition3* Transition3::_instance = NULL;
 
-    StateMachine::ITransition* Transition3::GetInstance()
+    Transition3* Transition3::GetInstance()
     {
         if (_instance == NULL)
             _instance = new Transition3();
@@ -13,10 +13,13 @@ namespace Examples
         return _instance;
     }
 
-    Transition3::Transition3() { }
-
-    StateMachine::IPayload* Transition3::GetPayload()
+    Transition3::Transition3()
     {
-        return nullptr;
+        _payload = new Payload2();
+    }
+
+    Payload2* Transition3::GetPayload()
+    {
+        return _payload;
     }
 }

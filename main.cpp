@@ -20,10 +20,11 @@ int main()
     StateMachine::IState* initialState = new StateA();
     StateMachine::IState* stateC = new StateC();
 
-    Payload1* payload1 = new Payload1();
-    Transition1::GetInstance().AddPayload(payload1);    // TODO:
+    // Custom payload
+    Payload1* payload1 = Transition1::GetInstance()->GetPayload();
+    payload1->SetMessage("Payload 1 from State A to State B - Initial message set in main.cpp");
 
-    /* StateA -> */ transitionMap[Transition1::GetInstance(payload1)] = new StateB();
+    /* StateA -> */ transitionMap[Transition1::GetInstance()] = new StateB();
         /* StateB -> */ transitionMap[Transition3::GetInstance()] = stateC;
             /* StateC -> */ transitionMap[Transition4::GetInstance()] = initialState;
     /* StateA -> */ transitionMap[Transition2::GetInstance()] = stateC;

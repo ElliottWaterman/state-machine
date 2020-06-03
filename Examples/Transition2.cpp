@@ -5,23 +5,18 @@ namespace Examples
 {
     Transition2* Transition2::_instance = NULL;
 
-    Transition2* Transition2::GetInstance(Payload2* payload)
+    Transition2* Transition2::GetInstance()
     {
         if (_instance == NULL)
             _instance = new Transition2();
 
-        if (_instance->GetPayload() == nullptr)
-            _instance->CreatePayload();
-
         return _instance;
     }
 
-    void Transition2::CreatePayload()
+    Transition2::Transition2()
     {
         _payload = new Payload2();
     }
-
-    Transition2::Transition2() {}
 
     Payload2* Transition2::GetPayload()
     {
